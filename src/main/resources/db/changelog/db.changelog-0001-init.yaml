@@ -1,0 +1,111 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0001-create-tables
+      author: property-view
+      changes:
+        - createTable:
+            tableName: amenities
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+        - addUniqueConstraint:
+            tableName: amenities
+            columnNames: name
+            constraintName: uk_amenity_name
+
+        - createTable:
+            tableName: hotels
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: VARCHAR(2000)
+              - column:
+                  name: brand
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: address_house_number
+                  type: VARCHAR(50)
+              - column:
+                  name: address_street
+                  type: VARCHAR(255)
+              - column:
+                  name: address_city
+                  type: VARCHAR(255)
+              - column:
+                  name: address_country
+                  type: VARCHAR(255)
+              - column:
+                  name: address_post_code
+                  type: VARCHAR(50)
+              - column:
+                  name: contacts_phone
+                  type: VARCHAR(50)
+              - column:
+                  name: contacts_email
+                  type: VARCHAR(255)
+              - column:
+                  name: arrival_check_in
+                  type: VARCHAR(50)
+              - column:
+                  name: arrival_check_out
+                  type: VARCHAR(50)
+
+        - createTable:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: amenity_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+
+        - addPrimaryKey:
+            tableName: hotel_amenities
+            columnNames: hotel_id, amenity_id
+            constraintName: pk_hotel_amenities
+
+        - addForeignKeyConstraint:
+            baseTableName: hotel_amenities
+            baseColumnNames: hotel_id
+            referencedTableName: hotels
+            referencedColumnNames: id
+            constraintName: fk_hotel_amenities_hotel
+            onDelete: CASCADE
+
+        - addForeignKeyConstraint:
+            baseTableName: hotel_amenities
+            baseColumnNames: amenity_id
+            referencedTableName: amenities
+            referencedColumnNames: id
+            constraintName: fk_hotel_amenities_amenity
+            onDelete: CASCADE
+
