@@ -1,4 +1,4 @@
-package com.example.propertyview.dto;
+package com.example.propertyview.dto.common;
 
 public class AddressDto {
 

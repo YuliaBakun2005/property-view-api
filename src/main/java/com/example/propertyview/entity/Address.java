@@ -1,25 +1,42 @@
 package com.example.propertyview.entity;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Embeddable
+@Entity
+@Table(name = "addresses")
 public class Address {
 
-    @Column(name = "address_house_number")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "house_number")
     private String houseNumber;
 
-    @Column(name = "address_street")
+    @Column(name = "street")
     private String street;
 
-    @Column(name = "address_city")
+    @Column(name = "city")
     private String city;
 
-    @Column(name = "address_country")
+    @Column(name = "country")
     private String country;
 
-    @Column(name = "address_post_code")
+    @Column(name = "post_code")
     private String postCode;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getHouseNumber() {
         return houseNumber;

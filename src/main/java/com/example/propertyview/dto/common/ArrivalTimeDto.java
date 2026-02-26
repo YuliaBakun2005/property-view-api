@@ -1,17 +1,18 @@
-package com.example.propertyview.entity;
+package com.example.propertyview.dto.common;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.time.LocalTime;
 
-@Embeddable
-public class ArrivalTime {
+public class ArrivalTimeDto {
 
-    @Column(name = "arrival_check_in")
+    @JsonFormat(pattern = "HH:mm")
+    @Schema(example = "14:00")
     private LocalTime checkIn;
 
-    @Column(name = "arrival_check_out")
+    @JsonFormat(pattern = "HH:mm")
+    @Schema(example = "12:00")
     private LocalTime checkOut;
 
     public LocalTime getCheckIn() {

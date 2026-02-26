@@ -1,25 +1,32 @@
-package com.example.propertyview.dto;
+package com.example.propertyview.dto.create;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+import com.example.propertyview.dto.common.AddressDto;
+import com.example.propertyview.dto.common.ContactDto;
+import com.example.propertyview.dto.common.ArrivalTimeDto;
 
 import java.util.List;
 
-public class HotelDetailDto {
+public class HotelCreateUpdateDto {
 
-    private Long id;
+    @NotBlank
     private String name;
+
     private String description;
+
+    @NotBlank
     private String brand;
+
+    @NotNull
     private AddressDto address;
-    private ContactsDto contacts;
+
+    private ContactDto contacts;
+
     private ArrivalTimeDto arrivalTime;
-    private List<AmenityDto> amenities;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private List<String> amenityNames;
 
     public String getName() {
         return name;
@@ -53,11 +60,11 @@ public class HotelDetailDto {
         this.address = address;
     }
 
-    public ContactsDto getContacts() {
+    public ContactDto getContacts() {
         return contacts;
     }
 
-    public void setContacts(ContactsDto contacts) {
+    public void setContacts(ContactDto contacts) {
         this.contacts = contacts;
     }
 
@@ -69,12 +76,12 @@ public class HotelDetailDto {
         this.arrivalTime = arrivalTime;
     }
 
-    public List<AmenityDto> getAmenities() {
-        return amenities;
+    public List<String> getAmenityNames() {
+        return amenityNames;
     }
 
-    public void setAmenities(List<AmenityDto> amenities) {
-        this.amenities = amenities;
+    public void setAmenityNames(List<String> amenityNames) {
+        this.amenityNames = amenityNames;
     }
 }
 

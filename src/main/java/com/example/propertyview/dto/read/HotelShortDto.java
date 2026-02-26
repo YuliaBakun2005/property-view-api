@@ -1,4 +1,4 @@
-package com.example.propertyview.dto;
+package com.example.propertyview.dto.read;
 
 public class HotelShortDto {
 

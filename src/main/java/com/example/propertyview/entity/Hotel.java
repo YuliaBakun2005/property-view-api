@@ -33,16 +33,18 @@ public class Hotel {
     @Column(nullable = false)
     private String brand;
 
-    @Embedded
+    @jakarta.persistence.OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @jakarta.persistence.JoinColumn(name = "address_id")
     private Address address;
 
-    @Embedded
-    private Contacts contacts;
+    @jakarta.persistence.OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @jakarta.persistence.JoinColumn(name = "contact_id")
+    private Contact contacts;
 
     @Embedded
     private ArrivalTime arrivalTime;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "hotel_amenities",
             joinColumns = @JoinColumn(name = "hotel_id"),
@@ -90,11 +92,11 @@ public class Hotel {
         this.address = address;
     }
 
-    public Contacts getContacts() {
+    public Contact getContacts() {
         return contacts;
     }
 
-    public void setContacts(Contacts contacts) {
+    public void setContacts(Contact contacts) {
         this.contacts = contacts;
     }
 

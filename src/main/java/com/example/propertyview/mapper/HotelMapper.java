@@ -1,16 +1,16 @@
 package com.example.propertyview.mapper;
 
-import com.example.propertyview.dto.AddressDto;
-import com.example.propertyview.dto.AmenityDto;
-import com.example.propertyview.dto.ArrivalTimeDto;
-import com.example.propertyview.dto.ContactsDto;
-import com.example.propertyview.dto.HotelCreateUpdateDto;
-import com.example.propertyview.dto.HotelDetailDto;
-import com.example.propertyview.dto.HotelShortDto;
+import com.example.propertyview.dto.read.HotelShortDto;
+import com.example.propertyview.dto.read.HotelDetailDto;
+import com.example.propertyview.dto.create.HotelCreateUpdateDto;
+import com.example.propertyview.dto.common.AddressDto;
+import com.example.propertyview.dto.common.AmenityDto;
+import com.example.propertyview.dto.common.ArrivalTimeDto;
+import com.example.propertyview.dto.common.ContactDto;
 import com.example.propertyview.entity.Address;
 import com.example.propertyview.entity.Amenity;
 import com.example.propertyview.entity.ArrivalTime;
-import com.example.propertyview.entity.Contacts;
+import com.example.propertyview.entity.Contact;
 import com.example.propertyview.entity.Hotel;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -34,9 +34,9 @@ public interface HotelMapper {
 
     Address toEntity(AddressDto dto);
 
-    ContactsDto toDto(Contacts contacts);
+    ContactDto toDto(Contact contacts);
 
-    Contacts toEntity(ContactsDto dto);
+    Contact toEntity(ContactDto dto);
 
     ArrivalTimeDto toDto(ArrivalTime arrivalTime);
 

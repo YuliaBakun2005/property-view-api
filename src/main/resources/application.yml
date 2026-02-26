@@ -20,6 +20,7 @@ spring:
       hibernate:
         format_sql: true
     show-sql: true
+    open-in-view: false
 
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-master.yaml
@@ -34,6 +35,10 @@ management:
     web:
       exposure:
         include: health,info
+
+logging:
+  level:
+    org.springframework.test.context.support.AnnotationConfigContextLoaderUtils: WARN
 
 springdoc:
   api-docs:

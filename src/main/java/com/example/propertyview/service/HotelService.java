@@ -1,9 +1,9 @@
 package com.example.propertyview.service;
 
-import com.example.propertyview.dto.AddAmenitiesRequestDto;
-import com.example.propertyview.dto.HotelCreateUpdateDto;
-import com.example.propertyview.dto.HotelDetailDto;
-import com.example.propertyview.dto.HotelShortDto;
+import com.example.propertyview.dto.create.AddAmenitiesRequestDto;
+import com.example.propertyview.dto.create.HotelCreateUpdateDto;
+import com.example.propertyview.dto.read.HotelDetailDto;
+import com.example.propertyview.dto.read.HotelShortDto;
 
 import java.util.List;
 import java.util.Map;

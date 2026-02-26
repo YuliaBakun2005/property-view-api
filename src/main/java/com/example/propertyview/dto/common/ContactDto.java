@@ -1,15 +1,8 @@
-package com.example.propertyview.entity;
+package com.example.propertyview.dto.common;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
+public class ContactDto {
 
-@Embeddable
-public class Contacts {
-
-    @Column(name = "contacts_phone")
     private String phone;
-
-    @Column(name = "contacts_email")
     private String email;
 
     public String getPhone() {
